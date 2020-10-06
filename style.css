@@ -1,0 +1,150 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+  padding:2%;
+  padding-top:0;
+  background-color:#3AAFA9 !important;
+}
+nav{
+  width:100;
+  height:4em;
+  background-color: #2B7A78;
+  font-family: Bangers;
+  padding-bottom: 4%;
+}
+
+nav a{
+  float:right;
+  text-decoration: none;
+  color:#DEF2F1;
+  padding-right: 4%;
+  padding-top:1%;
+  font-size: 2em;
+}
+
+nav a:hover{
+  float:right;
+  text-decoration: none;
+  color:#172528;
+  padding-right: 4%;
+  padding-top:1%;
+  font-size: 2em;
+}
+
+section{
+  width:100%;
+  text-align: center;
+  background-color: #172528;
+  text-transform: uppercase;
+  height:4em;
+}
+
+p{
+  color:#DEF2F1;
+  padding-top:1%;
+  font-size: 2em;
+  font-family: Bangers;
+}
+.container{
+  width:100% !important;
+  margin-top:2%;
+}
+
+#sketchpad {
+    margin: auto;
+    width: 100%;
+    height: 735px;
+}
+
+#drawing-panel{
+  padding-top:2%;
+  background-color: #2B7A78;
+  height:800px;  
+}
+
+#canvasProjector{
+  z-index: -5;
+  display: inline-block;
+}
+
+#dcanvas img{
+  opacity: 0;
+}
+
+#dcanvas{
+  padding-left:3%;
+}
+
+.toolbar {
+  width: 100%;
+  min-width: 228px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 14px;
+  display: inline-block;
+  padding-bottom:3%;
+}
+.toolbar .section {
+  clear:both;
+  margin-bottom: 8px;
+}
+.toolbar .slider {
+  width: 100%;
+}
+
+.toolbar .button {
+  float: left;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.toolbar .button.active {
+  background-color: rgba(0, 0, 0, .5);
+  color: rgba(255, 255, 255, 1);
+}
+
+body {
+        margin: 0;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #333;
+        background-color: #fff;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    
+    .btn-default {
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+    
+    #img-out canvas{
+      width:0;
+    }

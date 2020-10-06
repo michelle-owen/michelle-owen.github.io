@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+ 
+  <div id="Menu2" style="display: none;">I'm container two</div>
+  <div id="Menu3" style="display: none;">I'm container three</div>
+  <div id="Menu4" style="display: none;">I'm container four</div>
+      <nav class="main-nav">
+<a href="#" onclick="toggleVisibility('Menu1');">Prompt 1</a>
+        <a href="#" onclick="toggleVisibility('Menu2');">Prompt 2</a>
+        <a href="#" onclick="toggleVisibility('Menu3');">Prompt 3</a>
+        <a href="#" onclick="toggleVisibility('Menu4');">Prompt 4</a>
+      </nav>
+      <div id="Menu1">
+      <div class="container">
+        <div class="row" id="drawing-setup">
+          <div class="col-md-3" id="drawing-panel">
+            <p>Drawing Controls</p>
+            <div class="toolbar" id="tools">
+              <div class="section drawing">
+                <div id="tool-pen" class="button active"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+              </div>
+              <div class="section drawing">
+                <div class="section special">
+                  <hr>
+                  <span id="toolName">Tool name</span>
+                </div>
+                <div id="size" class="section size">
+                  <input class="slider" id="size-slider" type ="range" min ="1" max="20" step ="1" value ="1"/>
+                </div>
+
+                <div id="colorpaletteSection"  class="section colorpicker">
+                  <div id="colorpalette" class="colorpalette"></div>
+                </div>
+                <div id="colorpaletteFillSection" class="section colorpicker">
+                  <div id="colorpaletteFill" class="colorpalette"></div>
+                </div>
+              </div>
+            </div>
+            <p>Reference Image</p>
+
+            <div id="img-out" width="100px"></div>
+            
+
+          </div>
+          <div class="col-md-9" id="dcanvas">
+            <section>
+              <p>PROMPT: A PHYSICAL INSTALLATION THAT IMPROVES MORALE FOR OFFICE WORKERS</p>
+            </section>
+            <div id="actualpad">
+             <div id="sketchpad" style="background-color: red;"></div>
+            </div>
+            <button type="button" class="btnScreenShot" id="btnScreenShot">Finished?</button>
+
+<script>
+  var $btn = document.getElementById('btnScreenShot');
+$btn.addEventListener('mousedown', onScreenShotClick);
+
+
+function onScreenShotClick(ev){ //스크린샷 기능
+  html2canvas(document.querySelector("#actualpad")).then(canvas => {
+    document.getElementById('img-out').appendChild(canvas).style.width = "95%";
+    document.getElementById('img-out').appendChild(canvas).style.height = "75%";
+    document.getElementById('sketchpad').context.clearRect(0, 0, canvas.width, canvas.height);
+  });
+}
+</script>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    </body>
+      <!-- http://sketchpad.pro - free online drawing board tool -->
+      <script src="http://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+      <script src="script.js"></script>
+  </html>
