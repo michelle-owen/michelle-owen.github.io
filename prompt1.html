@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+      <script src="scripts/jquery-3.5.1.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   </head>
+   <body class="bodyii">
+      <div class="container">
+      <div class="row" id="drawing-setup">
+      <div class="col-md-12" id="drawing-panel">
+         <div id="inset">
+            <section>
+               <h2>ROUND ONE: DRAW
+                  <a href="#" class="toggle" style="float:right; padding-right: 2%;">👀</a>
+               </h2>
+               <script>
+                  $('.Show').click(function() {
+                  $('#rest').show(500);
+                  $('.Show').hide(0);
+                  $('.Hide').show(0);
+                  });
+                  $('.Hide').click(function() {
+                  $('#rest').hide(500);
+                  $('.Show').show(0);
+                  $('.Hide').hide(0);
+                  });
+                  $('.toggle').click(function() {
+                  $('#rest').toggle('slow');
+                  });
+               </script>
+            </section>
+            <aside id="rest">
+               <div id="actualpad" class="col-md-8" style="float:right;">
+                  <div id="sketchpad" style="background-color: white;"></div>
+               </div>
+               <div class="toolbar" id="tools" class="col-md-2" >
+                  <div class="section drawing">
+                     <div id="tool-pen" class="button active"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="section drawing">
+                     <div class="section special">
+                        <hr>
+                        <span id="toolName">Tool name</span>
+                     </div>
+                     <div id="size" class="section size">
+                        <input class="slider" id="size-slider" type ="range" min ="1" max="20" step ="1" value ="1"/>
+                     </div>
+                     <div id="colorpaletteSection"  class="section colorpicker">
+                        <div id="colorpalette" class="colorpalette"></div>
+                     </div>
+                     <div id="colorpaletteFillSection" class="section colorpicker">
+                        <div id="colorpaletteFill" class="colorpalette"></div>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         </aside>
+      </div>
+   </div>
+</div>
+</div>
+</body>
+         <!-- http://sketchpad.pro - free online drawing board tool -->
+   <script>
+      $('.Show').click(function() {
+      $('#start').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+      });
+      $('.Hide').click(function() {
+      $('#start').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.togglepre').click(function() {
+      $('#start').toggle('slow');
+      });
+   </script>
+   <script>
+      $('.Show').click(function() {
+      $('#restii').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+      });
+      $('.Hide').click(function() {
+      $('#restii').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.toggleii').click(function() {
+      $('#restii').toggle('slow');
+      });
+   </script>
+   <script type="text/javascript">
+      var titles  = [];
+      var titleInput  = document.getElementById("title");
+      var messageBox  = document.getElementById("display");
+      
+      function Allow(){
+          if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="") {
+              user.title.value="";
+              alert("Please Enter only alphabets");
+          }
+      }
+      
+      function insert () {
+          titles.push(titleInput.value);
+          clearAndShow();
+      }
+      
+      function clearAndShow () {
+          titleInput.value = "";
+          messageBox.innerHTML = "";
+          messageBox.innerHTML += titles.join(", ") + "<br/>";
+      }
+   </script>
+   <script src="https://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+   <script src="script.js"></script>
+   <script>
+      function handleClearButtonClick(event) {
+      event.preventDefault();
+      
+      clearCanvas();
+      }
+      
+      // ======================
+      // == Helper Functions ==
+      // ======================
+      function getMosuePositionOnCanvas(event) {
+      const canvasContext = canvas.getContext('2d');
+      
+      const clientX = event.clientX || event.touches[0].clientX;
+      const clientY = event.clientY || event.touches[0].clientY;
+      const { offsetLeft, offsetTop } = event.target;
+      const canvasX = clientX - offsetTop;
+      const canvasY = clientY - offsetTop;
+      
+      return { x: canvasX, y: canvasY };
+      }
+      
+      function clearCanvas() {
+      const canvasContext = canvas.getContext('2d');
+      
+      canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+      }
+   </script>
+</html>
