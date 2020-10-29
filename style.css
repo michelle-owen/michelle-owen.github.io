@@ -288,3 +288,19 @@ main {
   text-align: justify;
   line-height: 2;
 }
+
+footer {
+   left: 0;
+   bottom: 0;
+   width: 50%;
+   background-color: #172528;
+   text-align: center;
+   height:2em;
+}
+
+footer a{
+  text-decoration: none;
+  color:#DEF2F1;
+  font-size:1.5em;
+  font-family: Bangers;
+}
