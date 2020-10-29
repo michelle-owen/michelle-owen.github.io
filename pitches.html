@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+      <script src="scripts/jquery-3.5.1.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   </head>
+   <body>
+    <nav class="main-nav">
+         <button id="mixedClick"><a href="index.html">| Home</a></button>
+         <button id="experienceClick"><a href="pitches.html">| Play</a></button>
+         <button id="makeupClick"><a href="#Makeup">| Promo </a></button>
+         <button id="processClick"><a href="#Process">| Help</a></button>
+      </nav>
+    <div class="container">
+      <div class="row" id="drawing-setup">
+      <div class="col-md-6" id="drawing-panel">
+         <div id="inset">
+            <section>
+               <h2>ROUND ONE: DRAW
+                  <a href="#" onclick="myFunction()" style="float:right;padding-right: 2%;">SUBMIT</a>
+                  <script>
+                    function myFunction() {
+                      alert("Very nice artwork, you really have a flair for impressionism!! Now that you are done, move one position to the left and let's begin round 2! You are going to write a design pitch in response to your teammate's drawing, so let's hope they are an artist at heart...");
+                    }
+                  </script>
+                  <a href="#" class="toggle" style="float:right; margin-right: 2%;">👀</a>
+               </h2>
+            </section>
+            <aside id="rest">
+               <div id="actualpad" class="col-md-12" style="float:right;">
+                  <div id="sketchpad" style="background-color: white;"></div>
+               </div>
+              <!-- <div class="toolbar" id="tools" class="col-md-2" >
+                  <div class="section drawing">
+                     <div id="tool-pen" class="button active"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="section drawing">
+                     <div class="section special">
+                        <hr>
+                     </div>
+                     <div id="size" class="section size">
+                        <input class="slider" id="size-slider" type ="range" min ="1" max="20" step ="1" value ="1"/>
+                     </div>
+                     <div id="colorpaletteSection"  class="section colorpicker" width="70%">
+                        <div id="colorpalette" class="colorpalette"></div>
+                     </div>
+                     <div id="colorpaletteFillSection" class="section colorpicker">
+                        <div id="colorpaletteFill" class="colorpalette"></div>
+                     </div>
+                  </div>
+               </div> -->
+         </div>
+         </aside>
+      </div>
+      <div class="col-md-6" id="writing-panel">
+         <div id="inset">
+            <section>
+                <h2>ROUND TWO: DRAW
+                  <a href="#round3" class="toggle" name="round2" onclick="myFunctionii()" style="float:right;padding-right: 2%;">SUBMIT</a>
+                  <script>
+                    function myFunctionii() {
+                      alert("You have made some great points! Have you thought about taking up debating? I am getting distracted, rotate to your left again and we are back to honing your inner Piccasso, so get your paint brushes ready! Let's see if you can turn your teammate's design pitch back into picture-form...");
+                    }
+                  </script>
+                  <a href="#" class="toggleii" style="float:right; margin-right: 2%;">👀</a>
+               </h2>
+            </section>
+            <aside id="restii">
+               <section class="col-md-4" id="text-include" style="float: left;">
+                  <p>Include</p>
+                  <ol>
+                     <li>Key Stakeholder</li>
+                     <li>Problem Space</li>
+                     <li>Solution Approach</li>
+                  </ol>
+               </section>
+               <textarea class="col-md-8" id="title" type="text" onkeyup="Allow()" style="float: right;"></textarea>
+               <input id="submit" type="submit" value="Pitch It" onclick="insert()" />
+               <div id="response">
+                  <p>
+                  <div id="display"></div>
+                  </p>
+               </div>
+         </div>
+         <div> 
+         </div>
+      </div>
+      </aside>
+         </div>
+      </div>
+      <a name="round3"> </a>
+      <object type="text/html" data="sub.html" id="duplicate">
+      </object>
+   </body>
+   <!-- http://sketchpad.pro - free online drawing board tool -->
+   <script>
+      $('.Show').click(function() {
+      $('#rest').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+      });
+      $('.Hide').click(function() {
+      $('#rest').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.toggle').click(function() {
+      $('#rest').toggle('slow');
+      });
+   </script>
+   <script>
+      $('.Show').click(function() {
+      $('#restii').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+
+      });
+      $('.Hide').click(function() {
+      $('#restii').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.toggleii').click(function() {
+      $('#restii').toggle('slow');
+      });
+   </script>
+   <script type="text/javascript">
+      var titles  = [];
+      var titleInput  = document.getElementById("title");
+      var messageBox  = document.getElementById("display");
+      
+      function Allow(){
+          if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="") {
+              user.title.value="";
+              alert("Please Enter only alphabets");
+          }
+      }
+      
+      function insert () {
+          titles.push(titleInput.value);
+          clearAndShow();
+      }
+      
+      function clearAndShow () {
+          titleInput.value = "";
+          messageBox.innerHTML = "";
+          messageBox.innerHTML += titles.join(", ") + "<br/>";
+      }
+   </script>
+   <script src="https://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+   <script src="script.js"></script>
+   <script>
+    $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+   </script>
+</html>

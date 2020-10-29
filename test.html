@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="style.css">
+      <link href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+      <script src="scripts/jquery-3.5.1.min.js"></script>
+      <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   </head>
+   <body>
+<header role="banner">
+  <nav class="anchor-nav" role="navigation">
+    <a href="#section-1" id="anchor1">Round 1</a>
+    <a href="#section-2" id="anchor2">Round 2</a>
+    <a href="#section-3" id="anchor3">Round 3</a>
+    <a href="#section-4" id="anchor4">Round 4</a>
+  </nav>
+</header>
+
+<main class="full-screen" role="main">
+
+
+  <section class="full-screen orange" id="section-1">      
+      <div>
+        <p>Round 1</p>
+      <object type="text/html" data="prompt1.html" id="duplicate">
+      </object>
+    </div>
+  </section>
+
+  <section class="full-screen red" id="section-2">
+    <div>
+      <p>Round 2</p>
+    </div>
+  </section>
+
+  <section class="full-screen blue" id="section-3">
+    <div>
+      <p>Round 3</p>
+    </div>
+  </section>
+
+   <section class="full-screen orange" id="section-4">      
+      <div>
+        <p>Round 4</p>
+     
+    </div>
+  </section>
+</main>
+
+
+      
+   </body>
+   <!-- http://sketchpad.pro - free online drawing board tool -->
+   <script>
+      $('.Show').click(function() {
+      $('#start').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+      });
+      $('.Hide').click(function() {
+      $('#start').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.togglepre').click(function() {
+      $('#start').toggle('slow');
+      });
+   </script>
+   <script>
+      $('.Show').click(function() {
+      $('#restii').show(500);
+      $('.Show').hide(0);
+      $('.Hide').show(0);
+      });
+      $('.Hide').click(function() {
+      $('#restii').hide(500);
+      $('.Show').show(0);
+      $('.Hide').hide(0);
+      });
+      $('.toggleii').click(function() {
+      $('#restii').toggle('slow');
+      });
+   </script>
+   <script>
+      var controller = new ScrollMagic.Controller({
+        globalSceneOptions: {
+          duration: $('section').height(),
+          triggerHook: .025,
+          reverse: true
+        },
+        vertical: false
+      });
+
+
+      /*
+      object to hold href values of links inside our nav with
+      the class '.anchor-nav'
+
+      scene_object = {
+        '[scene-name]' : {
+          '[target-scene-id]' : '[anchor-href-value]'
+        }
+      }
+      */
+      var scenes = {
+        'intro': {
+          'intro': 'intro-anchor'
+        },
+        'scene2': {
+          'section-1': 'anchor1'
+        },
+        'scene3': {
+          'section-2': 'anchor2'
+        },
+        'scene4': {
+          'section-3': 'anchor3'
+        }
+      }
+
+      for(var key in scenes) {
+        // skip loop if the property is from prototype
+        if (!scenes.hasOwnProperty(key)) continue;
+
+        var obj = scenes[key];
+
+        for (var prop in obj) {
+          // skip loop if the property is from prototype
+          if(!obj.hasOwnProperty(prop)) continue;
+
+          new ScrollMagic.Scene({ triggerElement: '#' + prop })
+              .setClassToggle('#' + obj[prop], 'active')
+              .addTo(controller);
+        }
+      }
+
+
+
+
+
+      //  Bind scroll to anchor links using Vanilla JavaScript
+      var anchor_nav = document.querySelector('.anchor-nav');
+
+      anchor_nav.addEventListener('click', function(e) {
+        var target = e.target,
+            id     = target.getAttribute('href');
+
+        if(id !== null && id.length > 0) {
+          e.preventDefault();
+          controller.scrollTo(id);
+
+          if(window.history && window.history.pushState) {
+            history.pushState("", document.title, id);
+          }
+        }
+      });
+
+      </script>
+   <script type="text/javascript">
+      var titles  = [];
+      var titleInput  = document.getElementById("title");
+      var messageBox  = document.getElementById("display");
+      
+      function Allow(){
+          if (!user.title.value.match(/[a-zA-Z]$/) && user.title.value !="") {
+              user.title.value="";
+              alert("Please Enter only alphabets");
+          }
+      }
+      
+      function insert () {
+          titles.push(titleInput.value);
+          clearAndShow();
+      }
+      
+      function clearAndShow () {
+          titleInput.value = "";
+          messageBox.innerHTML = "";
+          messageBox.innerHTML += titles.join(", ") + "<br/>";
+      }
+   </script>
+   <script src="https://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
+   <script src="script.js"></script>
+   <script>
+      function handleClearButtonClick(event) {
+      event.preventDefault();
+      
+      clearCanvas();
+      }
+      
+      // ======================
+      // == Helper Functions ==
+      // ======================
+      function getMosuePositionOnCanvas(event) {
+      const canvasContext = canvas.getContext('2d');
+      
+      const clientX = event.clientX || event.touches[0].clientX;
+      const clientY = event.clientY || event.touches[0].clientY;
+      const { offsetLeft, offsetTop } = event.target;
+      const canvasX = clientX - offsetTop;
+      const canvasY = clientY - offsetTop;
+      
+      return { x: canvasX, y: canvasY };
+      }
+      
+      function clearCanvas() {
+      const canvasContext = canvas.getContext('2d');
+      
+      canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+      }
+   </script>
+   <style>
+
+/*
+    Demo Styles: NOT REQUIRED
+*/
+html,
+body {
+  margin: 0;
+  height: 100%
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+a.active {
+  color: #000;
+  text-decoration: underline;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+
+.full-screen {
+  display: flex;
+  width:200vw;
+  max-width:calc(1920px *1.5 );
+  max-height:100%;
+  overflow:hidden;
+  height: 100%; /* makes panels the entire window height */
+}
+
+.blue {
+    background-color: #3883d8;
+}
+.red {
+    background-color: #cf3535;
+}
+.orange {
+    background-color: #ea6300;
+    display:block;
+    margin-top:3%;
+  }
+
+</style>
+</html>

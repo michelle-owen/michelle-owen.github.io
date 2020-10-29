@@ -6,12 +6,28 @@ body{
   padding-top:0;
   background-color:#3AAFA9 !important;
 }
-nav{
-  width:100;
-  height:4em;
+
+nav a,
+button {
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5em;
+  border: none;
+  width: 12%;
+  padding-top: 1%;
+  position: relative;
+  z-index: 1;
+  margin-left: -1%;
   background-color: #2B7A78;
   font-family: Bangers;
-  padding-bottom: 4%;
+}
+
+nav{
+  width:100;
+  background-color: #2B7A78;
+  font-family: Bangers;
+  padding-bottom: 1%;
 }
 
 nav h2{
@@ -23,9 +39,28 @@ nav h2{
   font-size: 2em;
 }
 
+section a, section a:active{
+  margin-top:-2%;
+  padding:0.5%;
+  padding-left:1%;
+  padding-top:2%;
+  padding-bottom:2.2%;
+  text-align: center;
+  text-decoration: none;
+  background-color:#DEF2F1;
+  color:#172528;
+}
+
+section a:hover{
+  background-color:#172528;
+  color:#DEF2F1;
+  text-decoration: none;
+}
+
 #inset{
   padding:2%;
   background-color: #2B7A78;
+  height:100vh;
 
 }
 
@@ -82,10 +117,11 @@ p{
 #sketchpad {
     margin: auto;
     width: 100%;
-    height: 700px;
+    height: 85vh;
 }
 
 #drawing-panel{
+  display: block;
   background-color: #3AAFA9 !important;
 }
 
@@ -97,8 +133,7 @@ p{
   z-index: -5;
   display: inline-block;
 }
-
-#dcanvas img{
+#actualpad img{
   opacity: 0;
 }
 
@@ -107,20 +142,21 @@ p{
 }
 
 .toolbar {
-  min-width: 220px;
+  min-width: 20px;
   background-color: #172528;
   text-align: center;
   display: inline-block;
   padding-bottom:3%;
-  height:700px;
+  height:85vh;
 }
 .toolbar .section {
   clear:both;
   margin-bottom: 8px;
 }
 .toolbar .slider {
-  width: 100%;
+  width: 80%;
 }
+
 
 .toolbar .button {
   float: left;
@@ -209,3 +245,46 @@ body {
     .Hide{
       display: none;
     }
+
+    header a {
+  font-size: 0.8em;
+  text-decoration: none;
+  color:#303030;
+}
+
+header {
+  width: 100%;
+  margin-top:-5%;
+  padding-top: 1%;
+  font-size: 1.2em;
+  margin-left: -2%;
+}
+
+header h1{
+  font-family: Bangers;
+  font-size:10em;
+  text-align: center;
+}
+
+header h2{
+  font-size:1.2em;
+  font-family: Bangers;
+  text-align: center;
+  margin-top:-16%;
+  padding-bottom: 5%;
+}
+
+
+main {
+  margin-left: 5%;
+  padding-left: 5%;
+  padding-right: 3%;
+  padding-top: 2%;
+  margin-bottom: 5%;
+  width: 82%;
+  font-size: 1.2em;
+  font-weight: 700;
+  background-color: white;
+  text-align: justify;
+  line-height: 2;
+}

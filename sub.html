@@ -10,35 +10,26 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    </head>
    <body>
-      <div class="container">
+    <div class="container">
       <div class="row" id="drawing-setup">
       <div class="col-md-6" id="drawing-panel">
          <div id="inset">
             <section>
                <h2>ROUND THREE: DRAW
-                  <a href="#" class="toggle" style="float:right; padding-right: 2%;">👀</a>
+                  <a href="#round2" onclick="myFunctioniii()" style="float:right;padding-right: 2%;">SUBMIT</a>
+                  <script>
+                    function myFunctioniii() {
+                      alert("You are really getting the hang of this! I think you know the drill by now, so up and to it! Move one position to the left and let's get to the final round! Write a design pitch in response to your teammate's masterpiece and make sure to give some thought to the problem space, solution approach and key stakeholders!");
+                    }
+                  </script>
+                  <a href="#" class="toggle" style="float:right; margin-right: 2%;">👀</a>
                </h2>
-               <script>
-                  $('.Show').click(function() {
-                  $('#rest').show(500);
-                  $('.Show').hide(0);
-                  $('.Hide').show(0);
-                  });
-                  $('.Hide').click(function() {
-                  $('#rest').hide(500);
-                  $('.Show').show(0);
-                  $('.Hide').hide(0);
-                  });
-                  $('.toggle').click(function() {
-                  $('#rest').toggle('slow');
-                  });
-               </script>
             </section>
             <aside id="rest">
-               <div id="actualpad" class="col-md-8" style="float:right;">
+               <div id="actualpad" class="col-md-12" style="float:right;">
                   <div id="sketchpad" style="background-color: white;"></div>
                </div>
-               <div class="toolbar" id="tools" class="col-md-2" >
+               <!--<div class="toolbar" id="tools" class="col-md-2" >
                   <div class="section drawing">
                      <div id="tool-pen" class="button active"><i class="fa fa-pencil" aria-hidden="true"></i></div>
                   </div>
@@ -57,15 +48,21 @@
                         <div id="colorpaletteFill" class="colorpalette"></div>
                      </div>
                   </div>
-               </div>
+               </div>-->
          </div>
          </aside>
       </div>
       <div class="col-md-6" id="writing-panel">
          <div id="inset">
             <section>
-               <h2>ROUND FOUR: PITCH
-                  <a href="#" class="toggleii" style="float:right; padding-right: 2%;">👀</a>
+                <h2>ROUND FOUR: DRAW
+                  <a href="#" class="toggle" onclick="myFunction()" style="float:right;padding-right: 2%;">SUBMIT</a>
+                  <script>
+                    function myFunction() {
+                      alert("Four rounds done and dusted! Good job! Now pitch the concept you just ideated for to your teammates, be confident - you all had a hand in making it!");
+                    }
+                  </script>
+                  <a href="#" class="toggleii" style="float:right; margin-right: 2%;">👀</a>
                </h2>
             </section>
             <aside id="restii">
@@ -89,21 +86,23 @@
          </div>
       </div>
       </aside>
+         </div>
+      </div>
    </body>
    <!-- http://sketchpad.pro - free online drawing board tool -->
    <script>
       $('.Show').click(function() {
-      $('#start').show(500);
+      $('#rest').show(500);
       $('.Show').hide(0);
       $('.Hide').show(0);
       });
       $('.Hide').click(function() {
-      $('#start').hide(500);
+      $('#rest').hide(500);
       $('.Show').show(0);
       $('.Hide').hide(0);
       });
-      $('.togglepre').click(function() {
-      $('#start').toggle('slow');
+      $('.toggle').click(function() {
+      $('#rest').toggle('slow');
       });
    </script>
    <script>
@@ -111,6 +110,7 @@
       $('#restii').show(500);
       $('.Show').hide(0);
       $('.Hide').show(0);
+
       });
       $('.Hide').click(function() {
       $('#restii').hide(500);
@@ -147,31 +147,40 @@
    <script src="https://cdn.sketchpad.pro/dist/current/sketchpad.min.js"></script>
    <script src="script.js"></script>
    <script>
-      function handleClearButtonClick(event) {
-      event.preventDefault();
-      
-      clearCanvas();
+    $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
       }
-      
-      // ======================
-      // == Helper Functions ==
-      // ======================
-      function getMosuePositionOnCanvas(event) {
-      const canvasContext = canvas.getContext('2d');
-      
-      const clientX = event.clientX || event.touches[0].clientX;
-      const clientY = event.clientY || event.touches[0].clientY;
-      const { offsetLeft, offsetTop } = event.target;
-      const canvasX = clientX - offsetTop;
-      const canvasY = clientY - offsetTop;
-      
-      return { x: canvasX, y: canvasY };
-      }
-      
-      function clearCanvas() {
-      const canvasContext = canvas.getContext('2d');
-      
-      canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-      }
+    }
+  });
    </script>
 </html>
